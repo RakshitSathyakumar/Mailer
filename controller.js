@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 
 export const sendMailToClient = async (req, res) => {
   console.log(req.body);
-  const { toMail, subject, text } = req.body;
+  const { toMail, subject, text,html } = req.body;
 
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -22,6 +22,7 @@ export const sendMailToClient = async (req, res) => {
     to: toMail, // list of receivers
     subject: subject, // Subject line
     text: text, // plain text body
+    html:html
   };
 
   try {
